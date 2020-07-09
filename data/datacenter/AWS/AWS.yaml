@@ -1,0 +1,9 @@
+---
+datacentername: 'Amazon Web Services'
+datacenterurl: 'https://puppet-bastion.signin.aws.amazon.com/console'
+datacenteraddress: '23 Church St, Singapore 049481'
+datacentertelno: '+65 6722 0300'
+datacentertechology: 'AWS Web'
+datacentermanagedby: 'Amazon'
+motd: 'Welcome to Amazon (From Module)'
+password: 'clear_password_from_AWS'

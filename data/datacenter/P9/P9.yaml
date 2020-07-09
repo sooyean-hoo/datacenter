@@ -1,0 +1,9 @@
+---
+datacentername: 'Platform9 Systems, Inc.'
+datacenterurl: 'https://puppet.platform9.net/clarity/index.html#/instances#instances'
+datacenteraddress: 'Platform9 North America Headquarters,2465 Latham Street, Suite 110, Mountain View, CA 94040'
+datacentertelno: '+1 650 898 7369'
+datacentertechology: 'openstack'
+datacentermanagedby: 'puppet'
+motd: 'Welcome to Platform 9 (From Module)'
+password: 'clear_password_from_P9'
