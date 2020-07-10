@@ -6,6 +6,7 @@
 #   include datacenter
 class datacenter (
   String $datacenter_name = '?' ,
+  String $datacenter_name_flag   ,
 ){
 # OS-specific
 #  $datacenter = 'AWS';
