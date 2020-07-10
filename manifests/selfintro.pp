@@ -27,24 +27,28 @@ class datacenter::selfintro {
     'password'
     ]
 
-  $bar=split('                      ','').join('========')
-    
+  $tmp=['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',]
+  $bar=$tmp.join('====')
+  $cross=$tmp.join('++++')
+  notify { "Start${$cross}": }
+
   notify { "0${$bar}": }
   $datacenter_keys.each |String $hkey| {
     $v =  lookup($hkey)
     notify { " ${hkey} = ${v} ": }
-  }  
-  
+  }
+
   notify { "1${$bar}": }
-  
+
   $msg = ($datacenter_keys.map | $hkey | {   " ${hkey} :          ${lookup( $hkey ) }\r\n" } ).join
-  
+
   notify { "Message\r\n  ${msg}" :  }
-  
+
   notify { "2${$bar}": }
 
-  file{'/tmp/datacenterInfo.txt': 
+  file{'/tmp/datacenterInfo.txt':
     content => $msg ,
   }
+  notify { "End${$cross}": }
 
 }
