@@ -46,9 +46,19 @@ class datacenter::selfintro {
 
   notify { "2${$bar}": }
 
+  case $facts[ 'kernel' ] {
+    'windows': {
+      $fileURL= 'C:\\datacenter.txt',
+    }
+    'Linux': {
+      $fileURL= '/tmp/datacenter.txt',
+    }
+  }
+  
   file{'/tmp/datacenterInfo.txt':
     content => $msg ,
   }
+  
   notify { "End${$cross}": }
 
 }
