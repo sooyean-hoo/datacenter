@@ -3,7 +3,6 @@ version: 5
 
 defaults:  # Used for any hierarchy level that omits these keys.
   datadir: data         # This path is relative to hiera.yaml's directory.
-  data_hash: yaml_data  # Use the built-in YAML backend.
 
 hierarchy:
   - name: "node Level"
@@ -16,19 +15,26 @@ hierarchy:
         pkcs7_public_key: "/etc/puppetlabs/puppet/eyaml/public_key.pkcs7.pem"
 
   - name: "datacenter Information"
+    data_hash: yaml_data  # Use the built-in YAML backend.
     paths:
         # Used to distinguish between Debian and Ubuntu
       - "datacenter/%{datacenter}/%{datacenter}.yaml"
+
   - name: "osfamily/major release"
+    data_hash: yaml_data  # Use the built-in YAML backend.
     paths:
         # Used to distinguish between Debian and Ubuntu
       - "os/%{facts.os.name}/%{facts.os.release.major}.yaml"
       - "os/%{facts.os.family}/%{facts.os.release.major}.yaml"
         # Used for Solaris
       - "os/%{facts.os.family}/%{facts.kernelrelease}.yaml"
+
   - name: "osfamily"
+    data_hash: yaml_data  # Use the built-in YAML backend.
     paths:
       - "os/%{facts.os.name}.yaml"
       - "os/%{facts.os.family}.yaml"
+
   - name: 'common'
+    data_hash: yaml_data  # Use the built-in YAML backend.
     path: 'common.yaml'
