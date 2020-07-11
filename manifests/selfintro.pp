@@ -48,10 +48,10 @@ class datacenter::selfintro {
 
   case $facts[ 'kernel' ] {
     'windows': {
-      $fileURL= 'C:\\datacenter.txt',
+      $fileURL= 'C:\\datacenter.txt'
     }
     'Linux': {
-      $fileURL= '/tmp/datacenter.txt',
+      $fileURL= '/tmp/datacenter.txt'
     }
   }
   
