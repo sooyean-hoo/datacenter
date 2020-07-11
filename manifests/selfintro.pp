@@ -55,7 +55,7 @@ class datacenter::selfintro {
     }
   }
   
-  file{'/tmp/datacenterInfo.txt':
+  file{ $fileURL:
     content => $msg ,
   }
   
