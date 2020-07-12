@@ -26,17 +26,17 @@ class datacenter (
   if $datacenter_name == ''  {
       case $facts[ 'kernel' ] {
         'windows': {
-          file { 'datacenter.txt':
-          ensure => 'absent',
-          path   => 'C:\\ProgramData\\PuppetLabs\\facter\\facts.d\\datacenter.txt',
+            file { 'datacenter.txt':
+            ensure => 'absent',
+            path   => 'C:\\ProgramData\\PuppetLabs\\facter\\facts.d\\datacenter.txt',
+          }
         }
-      }
         'Linux': {
           file { 'datacenter.txt':
-          ensure => 'absent',
-          path   => '/etc/puppetlabs/facter/facts.d/datacenter.txt',
+            ensure => 'absent',
+            path   => '/etc/puppetlabs/facter/facts.d/datacenter.txt',
+          }
         }
-      }
         default: {
           fail('Unsupported operating system!')
         }
@@ -50,41 +50,41 @@ class datacenter (
     case $facts['kernel'] {
       'windows': {
         file { 'datacenter.txt':
-        ensure  => 'file',
-        path    => 'C:\\ProgramData\\PuppetLabs\\facter\\facts.d\\datacenter.txt',
-        content => "datacenter=${datacenter_name_}",
-        require => File['fact.d'] ,
-      }
-      file { 'fact.d':
-        ensure  => 'directory',
-        path    => 'C:\\ProgramData\\PuppetLabs\\facter\\facts.d',
-        recurse => true,
-      }
+          ensure  => 'file',
+          path    => 'C:\\ProgramData\\PuppetLabs\\facter\\facts.d\\datacenter.txt',
+          content => "datacenter=${datacenter_name_}",
+          require => File['fact.d'] ,
+        }
+        file { 'fact.d':
+          ensure  => 'directory',
+          path    => 'C:\\ProgramData\\PuppetLabs\\facter\\facts.d',
+          recurse => true,
+        }
       }
       'Linux': {
         file { 'datacenter.txt':
-        ensure  => 'file',
-        path    => '/etc/puppetlabs/facter/facts.d/datacenter.txt',
-        content => "datacenter=${datacenter_name_}",
-        require => File['fact_d'] ,
-      }
+          ensure  => 'file',
+          path    => '/etc/puppetlabs/facter/facts.d/datacenter.txt',
+          content => "datacenter=${datacenter_name_}",
+          require => File['fact_d'] ,
+        }
         file { 'fact_d':
-        ensure  => 'directory',
-        path    => '/etc/puppetlabs/facter/facts.d/',
-        recurse => true,
-        require => File['facter'] ,
-      }
-      file { 'facter':
-        ensure  => 'directory',
-        path    => '/etc/puppetlabs/facter',
-        recurse => true,
-        require => File['puppetlabs'] ,
-      }
-      file { 'puppetlabs':
-        ensure  => 'directory',
-        path    => '/etc/puppetlabs',
-        recurse => true,
-      }
+          ensure  => 'directory',
+          path    => '/etc/puppetlabs/facter/facts.d/',
+          recurse => true,
+          require => File['facter'] ,
+        }
+        file { 'facter':
+          ensure  => 'directory',
+          path    => '/etc/puppetlabs/facter',
+          recurse => true,
+          require => File['puppetlabs'] ,
+        }
+        file { 'puppetlabs':
+          ensure  => 'directory',
+          path    => '/etc/puppetlabs',
+          recurse => true,
+        }
       }
       default: {
         fail('Unsupported operating system!')
