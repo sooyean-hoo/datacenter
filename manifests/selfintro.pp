@@ -60,8 +60,9 @@ class datacenter::selfintro (
     }
   }
 
-  file{ $file_url:
+  file{ 'datacenter.txt' :
     ensure  => 'file',
+    path    => $file_url ,
     content => $msg ,
   }
 
