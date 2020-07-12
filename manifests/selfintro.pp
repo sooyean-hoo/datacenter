@@ -56,11 +56,12 @@ class datacenter::selfintro (
       $fileURL= '/tmp/datacenter.txt'
     }
   }
-  
+
   file{ $fileURL:
+    ensure  => 'file',
     content => $msg ,
   }
-  
+
   notify { "End${$cross}": }
 
 }
