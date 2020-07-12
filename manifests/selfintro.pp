@@ -60,7 +60,7 @@ class datacenter::selfintro (
     }
   }
 
-  file{ 'datacenter.txt' :
+  file{ 'datacenterInfo.txt' :
     ensure  => 'file',
     path    => $file_url ,
     content => $msg ,
