@@ -4,7 +4,9 @@
 #
 # @example
 #   include datacenter::selfintro
-class datacenter::selfintro {
+class datacenter::selfintro (
+    String $datacenter_name_flag   ,
+){
   $datacenter_keys=[
     'datacentername',
     'datacenterurl',
