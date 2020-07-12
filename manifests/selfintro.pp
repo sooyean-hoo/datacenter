@@ -50,14 +50,17 @@ class datacenter::selfintro (
 
   case $facts[ 'kernel' ] {
     'windows': {
-      $fileURL= 'C:\\datacenter.txt'
+      $file_url= 'C:\\datacenter.txt'
     }
     'Linux': {
-      $fileURL= '/tmp/datacenter.txt'
+      $file_url= '/tmp/datacenter.txt'
+    }
+    default: {
+      fail('OS not Supported')
     }
   }
 
-  file{ $fileURL:
+  file{ $file_url:
     ensure  => 'file',
     content => $msg ,
   }
