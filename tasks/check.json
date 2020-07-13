@@ -1,0 +1,12 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": true,
+  "description": "Get the DataCenter Info",
+  "parameters": { },
+
+  "implementations": [ 
+    {"name": "check.ps1"    , "requirements": ["powershell"]     },
+    {"name": "check.sh"     , "requirements": ["shell"]          }
+  ]
+
+}
